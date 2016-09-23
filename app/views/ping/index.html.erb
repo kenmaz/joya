@@ -1,0 +1,89 @@
+<%= stylesheet_link_tag "application", :media => "all" %>
+<%= javascript_include_tag "application" %>
+<script>
+<!--	
+var URL = "http://maps.google.com/staticmap?size=460x250&key=ABQIAAAAJj6UhaSU_kBHmDAyHZeCYBQG0d5GgewRGf6VQUkplvyPT6PnMxTfS9Kjn6Vz-jddY4zO8a11egL3Ww&markers=";
+
+var alphas = ["a","b","c","d","e","f","g","h","i","j"];
+
+function load() {
+  new Ajax.PeriodicalUpdater(
+    "pings", 
+    "/ping/json",
+    {
+      parameters: "_method=put&authenticity_token=<%=form_authenticity_token %>",
+      frequency: 10,
+      onSuccess: function(http, data){
+        if(http){
+
+          $('reports').innerHTML = "";
+          var reports = "";
+
+          var append = "";
+          var json = eval(http.responseText);
+          for(var i=0; i<json.length; i++){ 
+            var ping = json[i];
+            if(i < alphas.length){ 
+              var marker = "";
+              marker += ping.la;
+              marker += ",";
+              marker += ping.ln;
+              marker += ",";
+              marker += "red";
+              marker += alphas[i];
+              marker += "|";
+              append += marker;
+            }
+						report = "<div>";
+            if(i < 10){ //>
+              report += "<img src='/assets/dummy.png' class='mp icon_";
+              report += alphas[i].toUpperCase();
+              report += "'/>";
+            }
+            report += "<div class='entry'>";
+						<% if @jp -%>
+            report += ping.nickname;
+            report += "さんが &nbsp; ";
+            report += ping.time;
+            report += "前 &nbsp; に &nbsp;";
+            report += ping.count;
+            report += "回目 &nbsp; の鐘を撞きました。";
+						<% else -%>
+            report += ping.nickname;
+            report += " rang the bell of the ";
+            report += ping.count;
+            report += " times ";
+            report += ping.time;
+            report += " ago";
+						<% end -%>
+            report += "</div>";
+            report += "</div>";
+            reports += report;	
+          }
+          $('map').src = URL + append;
+          $('reports').innerHTML = reports;
+          return true;
+        }
+      }
+    }
+  );
+}
+
+Event.observe(window, "load", load);
+-->
+</script>
+<h1 style="margin-top:34px; margin-bottom:4px;">
+JOYA-NO-KANE in the world
+</h1>
+
+<div>
+  <img id="map" style="width:460ox; border: solid 1px;"/>
+</div>
+
+<div id="reports" >
+</div>
+<%= @locale %>
+</body>
+
+</html>
+

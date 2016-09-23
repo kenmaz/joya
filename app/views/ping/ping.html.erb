@@ -1,0 +1,24 @@
+<% form_tag :action=>:ping do %>
+	la:<%= text_field_tag :la %><br>
+	ln:<%= text_field_tag :ln %><br>
+	uid:<%= text_field_tag :uid %><br>
+	count:<%= text_field_tag :count%><br>
+	nickname:<%= text_field_tag :nickname%><br>
+	<%= submit_tag %>
+<% end %>
+
+<table>
+		<tr>
+	<% @pings.each do |ping| %>
+		<tr>
+			<td><%= ping.id %></td>
+			<td><%= ping.uid %></td>
+			<td><%= ping.la %></td>
+			<td><%= ping.ln %></td>
+			<td><%= ping.count %></td>
+			<td><%= ping.nickname %></td>
+			<td><%= ping.created_at %></td>
+			<td><%= link_to "remove", :action=>:remove, :id=>ping.id %></td>
+		</tr>
+	<% end %>
+</table>	

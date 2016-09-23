@@ -1,0 +1,29 @@
+.icon_A {	background: transparent url(/assets/red_icons_A_J.png) repeat scroll 0 0px }
+.icon_B {	background: transparent url(/assets/red_icons_A_J.png) repeat scroll 0 -38px }
+.icon_C {	background: transparent url(/assets/red_icons_A_J.png) repeat scroll 0 -76px }
+.icon_D {	background: transparent url(/assets/red_icons_A_J.png) repeat scroll 0 -114px }
+.icon_E {	background: transparent url(/assets/red_icons_A_J.png) repeat scroll 0 -152px }
+.icon_F {	background: transparent url(/assets/red_icons_A_J.png) repeat scroll 0 -190px }
+.icon_G {	background: transparent url(/assets/red_icons_A_J.png) repeat scroll 0 -228px }
+.icon_H {	background: transparent url(/assets/red_icons_A_J.png) repeat scroll 0 -266px }
+.icon_I {	background: transparent url(/assets/red_icons_A_J.png) repeat scroll 0 -299px }
+.icon_J {	background: transparent url(/assets/red_icons_A_J.png) repeat scroll 0 -337px }
+
+.mp {
+	height: 38px;
+	width: 24px;
+	float: left;
+}
+
+img {
+	border: 0 none;
+}
+
+.entry {
+	height: 38px;
+	border-bottom: solid 1px #AAAAAA;
+}
+
+#reports {
+	margin-top: 5px;
+}
