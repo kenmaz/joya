@@ -1,10 +1,10 @@
 <%= stylesheet_link_tag "application", :media => "all" %>
 <%= javascript_include_tag "application" %>
 <script>
-<!--	
-var URL = "http://maps.google.com/staticmap?size=460x250&key=ABQIAAAAJj6UhaSU_kBHmDAyHZeCYBQG0d5GgewRGf6VQUkplvyPT6PnMxTfS9Kjn6Vz-jddY4zO8a11egL3Ww&markers=";
+<!--
+var URL = "https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyDfc4P9sJj7Nc1b74mx_0tLX6vqO4tMZNI&size=400x250"
 
-var alphas = ["a","b","c","d","e","f","g","h","i","j"];
+var alphas = ["A","B","C","D","E","F","G","H","I","J"];
 
 function load() {
   new Ajax.PeriodicalUpdater(
@@ -24,20 +24,18 @@ function load() {
           for(var i=0; i<json.length; i++){ 
             var ping = json[i];
             if(i < alphas.length){ 
-              var marker = "";
+              var marker = "&markers=label:";
+              marker += alphas[i];
+              marker += "|";
               marker += ping.la;
               marker += ",";
               marker += ping.ln;
-              marker += ",";
-              marker += "red";
-              marker += alphas[i];
-              marker += "|";
               append += marker;
             }
 						report = "<div>";
             if(i < 10){ //>
               report += "<img src='/assets/dummy.png' class='mp icon_";
-              report += alphas[i].toUpperCase();
+              report += alphas[i];
               report += "'/>";
             }
             report += "<div class='entry'>";
